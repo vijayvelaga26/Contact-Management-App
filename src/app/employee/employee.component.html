@@ -1,0 +1,41 @@
+<h1>
+    This is from the employee page</h1>
+<h1>Hello ,{{name}} {{lname}}</h1>
+<h2>
+    <div *ngIf="visible" [innerText]="empId"></div>
+</h2>
+
+<button [ngClass]="{'btn btn-success':true}"type="button" (click)="removediv()">Click here !!!</button>
+
+{{employeeList | json}}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Salary</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let employee of employeeList;let i=index">
+        <tr>
+            <td>{{i}}</td>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.dob}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.address}}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div [ngSwitch]="empRole">
+    <div *ngSwitchCase =" 'Admin'">This is the admin role</div>
+    <div *ngSwitchCase =" 'Developer'">This is the developer role</div>
+    <div *ngSwitchCase =" 'user'">This is the user role</div>
+    <div *ngSwitchDefault>This is the default role</div>
+</div>
